@@ -1,0 +1,14 @@
+SMAP
+purple_jsp.java
+JSP
+*S JSP
+*F
++ 0 purple.jsp
+purple.jsp
+*L
+1,11:44
+11,5:55
+15,2:60
+17:62,3
+18,3:65
+*E
