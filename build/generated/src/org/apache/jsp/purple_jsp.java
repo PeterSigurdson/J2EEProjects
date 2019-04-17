@@ -43,26 +43,47 @@ public final class purple_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("  <title>The Oracle of Fortune</title>\n");
+      out.write("  <title>Echoing HTML Request Parameters</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("  <h3>Guess Your Fate:</h3>\n");
+      out.write("  <h3>Choose an author:</h3>\n");
       out.write("  <form method=\"get\">\n");
-      out.write("    <input type=\"text\" name=\"inputNumber\">\n");
+      out.write("    <input type=\"checkbox\" name=\"author\" value=\"Tan Ah Teck\">Tan\n");
+      out.write("    <input type=\"checkbox\" name=\"author\" value=\"Mohd Ali\">Ali\n");
+      out.write("    <input type=\"checkbox\" name=\"author\" value=\"Kumar\">Kumar\n");
+      out.write("    <input type=\"submit\" value=\"Query\">\n");
       out.write("  </form>\n");
-      out.write("  \n");
+      out.write(" \n");
       out.write("  ");
-    int num = Integer.parseInt(request.getParameter("inputNumber"));   
-            double num2 = Math.random();
-          
+
+  String[] authors = request.getParameterValues("author");
+  if (authors != null) {
   
-    
       out.write("\n");
-      out.write("  \n");
-      out.write("  <h2>Well, life goes on ... </h2><p>(");
-      out.print( num );
-      out.write(")</p>\n");
-      out.write("       \n");
+      out.write("    <h3>You have selected author(s):</h3>\n");
+      out.write("    <ul>\n");
+      out.write("  ");
+
+      for (int i = 0; i < authors.length; ++i) {
+  
+      out.write("\n");
+      out.write("        <li>");
+      out.print( authors[i] );
+      out.write("</li>\n");
+      out.write("  ");
+
+      }
+  
+      out.write("\n");
+      out.write("    </ul>\n");
+      out.write("    <a href=\"");
+      out.print( request.getRequestURI() );
+      out.write("\">BACK</a>\n");
+      out.write("  ");
+
+  }
+  
+      out.write("\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
